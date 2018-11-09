@@ -1,18 +1,18 @@
 import { shallowMount } from '@vue/test-utils'
 import { hacker } from 'faker'
-import App from './App.vue'
+import Message from './Message.vue'
 
-const shallowApp = (props = {}) => shallowMount(App, { propsData: { ...props } })
+const shallowMessage = (props = {}) => shallowMount(Message, { propsData: { ...props } })
 
-describe('Component: App.vue', () => {
+describe('Component: Message.vue', () => {
   it('renders default message', () => {
-    const component = shallowApp()
+    const component = shallowMessage()
     expect(component.text()).to.equal('Hello World!')
   })
 
   it('renders custom message', () => {
     const customMessage = hacker.phrase()
-    const component = shallowApp({ message: customMessage })
+    const component = shallowMessage({ message: customMessage })
     expect(component.text()).to.equal(customMessage)
   })
 })

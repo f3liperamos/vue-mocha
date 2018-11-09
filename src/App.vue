@@ -1,22 +1,18 @@
 <template>
   <div>
-    <h1>{{message}}</h1>
+    <Message :message="message" />
   </div>
 </template>
 
 <script>
+import Message from './components/Message.vue'
 export default {
   name: 'App',
+  components: {
+    Message
+  },
   props: {
-    message: {
-      default: 'Hello World!',
-      type: String
-    }
+    message: String
   }
 }
 </script>
-
-<style scoped lang="stylus">
-  h1
-    color blue
-</style>

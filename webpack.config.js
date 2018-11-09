@@ -1,3 +1,4 @@
+const path = require('path')
 const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -9,9 +10,14 @@ const isProduction = process.env.NODE_ENV === 'production'
 module.exports = {
   mode: isProduction ? 'production' : 'development',
   entry: './src/app.js',
-  devtool: 'cheap-module-source-map',
+  devtool: 'eval',
   module: {
-    rules: [
+    rules: [].concat(
+      process.env.NODE_ENV === 'test' ? {
+        test: /\.js$/,
+        loader: 'istanbul-instrumenter-loader',
+        options: { esModules: true }
+      } : [],
       { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
       { test: /\.vue$/, use: 'vue-loader' },
       {
@@ -22,7 +28,7 @@ module.exports = {
           'stylus-loader'
         ]
       }
-    ],
+    ),
   },
   devServer: { hot: true },
   plugins: [
