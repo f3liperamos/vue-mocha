@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const { VueLoaderPlugin } = require('vue-loader')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const nodeExternals = require('webpack-node-externals')
 
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -33,5 +34,6 @@ module.exports = {
       template: 'index.html',
       inject: true
     })
-  ]
+  ],
+  externals: process.env.NODE_ENV === 'test' ? nodeExternals() : []
 }
