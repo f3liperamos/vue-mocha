@@ -1,0 +1,55 @@
+{
+  "name": "vue-mocha",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_PATH=./ NODE_ENV=development webpack-dev-server",
+    "build": "cross-env NODE_PATH=./ NODE_ENV=production webpack",
+    "test": "cross-env NODE_PATH=./ NODE_ENV=test mocha-webpack --require mocha.config.js --recursive \"src/**/*.spec.js\"",
+    "coverage": "nyc npm test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/preset-env": "^7.1.5",
+    "@vue/test-utils": "^1.0.0-beta.25",
+    "babel-loader": "^8.0.4",
+    "chai": "^4.2.0",
+    "cross-env": "^5.2.0",
+    "css-loader": "^1.0.1",
+    "faker": "^4.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jsdom": "^13.0.0",
+    "jsdom-global": "^3.0.2",
+    "mini-css-extract-plugin": "^0.4.4",
+    "mocha": "^5.2.0",
+    "mocha-webpack": "^2.0.0-beta.0",
+    "nyc": "^13.1.0",
+    "style-loader": "^0.23.1",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "vue-loader": "^15.4.2",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "nyc": {
+    "exclude": [
+      "**.spec.js"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  }
+}
