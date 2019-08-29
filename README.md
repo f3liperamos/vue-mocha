@@ -1,3 +1,16 @@
+## Archive notice
+
+Consider using the new @vue/cli. There's a lot of outdated packages here and this repository was only a proof of concept to get coverage working properly with vue files.
+
+At the end, the best approach is still separate your bussiness in a plain javascript files with proper patterns.
+
+Useful resources:
+- https://sourcemaking.com/
+- https://refactoring.guru/
+- https://12factor.net/
+- https://en.wikipedia.org/wiki/SOLID
+- https://blog.cleancoder.com/uncle-bob/2016/03/19/GivingUpOnTDD.html
+
 ## Scripts
 
 To run project in development mode
@@ -16,8 +29,4 @@ Currently not working.
 > npm coverage
 
 ## TODO
-- Add a decent readme, with steps to change some packages, i.e stylus
-
-- Coverage is not working, fix it
-
 - Link to any article about "test folder vs file.spec on same folder"
